@@ -1,0 +1,61 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+
+.proceso-cafe {
+    margin-bottom: v.$separacion;
+
+    @include mix.tablet { 
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    @include mix.desktop { 
+        gap: v.$separacion;
+        margin-bottom: v.$separacion;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /*odd: todos los hijos que sean impares. */
+    /*even: todos los hijos que sean pares. */
+    &:nth-child(even) {
+        .texto {
+            order: -1;
+        }
+    }
+
+    .imagen,
+    .texto {
+        flex: 1;
+    }
+
+    .texto {
+        margin-top: 2rem;
+
+        @include mix.tablet { 
+            margin-top: 0;
+        }
+
+        @include mix.desktop { 
+            margin-top: 2rem;
+        }
+
+        h3 {
+            margin: 0;
+            text-align: left;
+            color: v.$color-principal;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 50%;
+                height: 5px;
+                background-color: v.$color-secundario;
+            }
+        }
+    }
+}

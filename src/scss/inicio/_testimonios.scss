@@ -1,0 +1,34 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+
+.testimonios {
+    padding: 10rem 2rem;
+
+    @include mix.tablet { 
+        padding: 10rem;
+    }
+
+    .testimonio {
+        background-color: v.$cafe-claro;
+        padding: 2rem 4rem;
+        border-radius: 1rem;
+        text-align: center;
+        
+        @include mix.desktop { 
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        .autor {
+            text-align: center;
+            font-size: 2.4rem;
+            color: v.$color-principal;
+            font-family: v.$fuente-cursiva;
+            font-style: italic;
+
+            @include mix.tablet { 
+                text-align: right;
+            }
+        }
+    }
+}

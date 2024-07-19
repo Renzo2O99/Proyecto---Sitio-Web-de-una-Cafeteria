@@ -1,0 +1,50 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+@use 'sass:math';
+
+.nav-principal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    @include mix.tablet { 
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 0;  
+    }
+
+    @include mix.desktop { 
+        gap: math.div( v.$separacion, 2 );
+    }
+
+    a {
+        text-align: center;
+        color: v.$blanco;
+        font-size: 3.1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 1rem;
+
+        text-decoration: none;
+        transition-duration: .65s, 1s;
+        transition-timing-function: ease, linear;
+
+        @include mix.tablet { 
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        @include mix.desktop { 
+            font-size: 2rem;
+        }
+
+        &:hover {
+            color: v.$color-secundario;
+            text-decoration: underline;
+        }
+
+        &.active {
+            color: v.$color-secundario;
+        }
+    }
+}

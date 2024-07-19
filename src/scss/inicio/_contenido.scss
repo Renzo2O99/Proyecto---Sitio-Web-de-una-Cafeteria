@@ -1,0 +1,44 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as mix;
+
+.contenido-principal {
+    background-color: v.$blanco;
+    padding: 5rem 2rem;
+
+    @include mix.tablet { 
+        padding: 10rem;
+        margin-top: -10rem;
+        position: relative;
+    }
+}
+
+.contenido-principal-nosotros {
+    @extend .contenido-principal;
+
+    @include mix.tablet {
+        padding: 2.5rem;
+        position: relative;
+    }
+
+    @include mix.desktop {
+        padding: 10rem;
+    }
+}
+
+.contenido-principal-menu {
+    @extend .contenido-principal;
+
+    padding-bottom: 0;
+}
+
+.contenido-principal-contacto {
+    @extend .contenido-principal;
+
+    @include mix.tablet { 
+        padding: 2.5rem 0 2.5rem 2.5rem;
+    }
+
+    @include mix.desktop { 
+        padding: 10rem 0 10rem 10rem;
+    }
+}
